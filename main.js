@@ -12,6 +12,7 @@ const path = require("path");
 const crypto = require('crypto');
 const {ExpressPeerServer} = require('peer')
 const ws = require("ws")
+const fs = require('fs');
 /**
  * 
  * Video Chatting is only available over https:// so we must use an https for webservices
@@ -30,7 +31,10 @@ const FRONTEND_DIERCTORY = path.join(__dirname,'build');
 const app = express();
 
 //These are the main server that do the listening
-const https_server = https.createServer({},app);
+const https_server = https.createServer({
+    cert : fs.readFileSync('./certificate.crt'),
+    key : fs.readFileSync('./private.key')
+},app);
 
 //peer server
 const peer = ExpressPeerServer(https_server,{

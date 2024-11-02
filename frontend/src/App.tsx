@@ -54,6 +54,7 @@ function App() {
     if(!targ) return;
 
     targ.value = '';
+    SetUploads([]);
   }
 
   
@@ -73,7 +74,12 @@ function App() {
       </div>
       <div className='Conversation'>
         <div className='Conversation-Scroller'>
-
+          {
+            SelectedChat == 'home' &&(<>
+              <button>Login</button>
+              <button>Logout</button>
+            </>)
+          }
         </div>
         <div className='Profile'>
           <Display background={svgurl} tag='' displayOnly onClick={()=>SetShowProfile(prev=>!prev)}/>
@@ -119,10 +125,20 @@ function App() {
               <label>Desc</label>
               <label>Select Microphone</label>
               <select>
-
+                {
+                  MediaDevices.filter(itm=>itm.kind == 'audioinput').map((itm,i)=>(
+                    <option key={i} value={itm.deviceId}>{`Device : ${itm.deviceId} ${itm.label}`}</option>
+                  ))
+                }
               </select>
               <label>Select Camera</label>
-
+              <select>
+                {
+                  MediaDevices.filter(itm=>itm.kind == 'videoinput').map((itm,i)=>(
+                    <option key={i} value={itm.deviceId}>{`Device : ${itm.deviceId} ${itm.label}`}</option>
+                  ))
+                }
+              </select>
 
               <input type='submit'/>
               <input type='reset'></input>

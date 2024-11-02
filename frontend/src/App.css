@@ -257,6 +257,18 @@
   display: flex;
   flex-direction: column;
 }
+.Conversation-Scroller > :first-child {
+  margin-top: 1rem;
+}
+
+.Conversation-Scroller button {
+  background-color: transparent;
+  color : white;
+  border : none;
+  text-align: start;
+  padding-left: 10px;
+}
+
 
 .Profile {
   display: flex;
