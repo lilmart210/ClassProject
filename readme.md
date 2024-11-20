@@ -4,6 +4,7 @@
 > `cd frontend`  
 > `npm install`  
 > `npm run dev`  
+> The port is dynamic so check terminal for what port this is listenin on
 
 # Build Instructions with backend
 > do `Steps to take to run front end ` first  
