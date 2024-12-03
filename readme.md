@@ -5,6 +5,7 @@
 > `npm install`  
 > `npm run dev` (only neccesary if you are running in development mode)  
 > `cd ..`  
+> `npm install`
 > `npm run dev`  
 
 
