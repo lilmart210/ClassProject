@@ -2,7 +2,8 @@
 
 # To build completely DO THESE INSTRUCTIONS
 > `cd frontend`  
-> `npm install`  
+> `npm install`
+> `npm run build`    
 > `npm run dev` (only neccesary if you are running in development mode)  
 > `cd ..`  
 > `npm install`
