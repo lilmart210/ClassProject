@@ -418,6 +418,7 @@ kernal_server.on('forward',async (data)=>{
         })
         
     }else if(msg == 'Get Messages'){
+        console.log(data.thread);
         const mems = await DB('groupmembers')
         .select('*')
         .where({group : data.thread})
@@ -743,9 +744,9 @@ app.post('/message/:date/:id',AuthReq,async(req,res,next)=>{
     res.sendStatus(200);
     kernal_server.emit('forward',{
         msg : 'Get Messages',
-        thread : req.params.thread,
+        thread : req.params.id,
         date : req.params.date,
-        from : req.body.from
+        from : req.AUTH.username
     })
 })
 app.get('/message/:date/:id',async(req,res)=>{
