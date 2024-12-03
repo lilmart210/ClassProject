@@ -31,7 +31,7 @@
   width : 100%;
 }
 .ServerList > :first-child {
-  margin-top: 1rem;
+  margin-top: 1.3rem;
 }
 
 .ServerList button {
@@ -47,11 +47,68 @@
   position: relative;
   flex-direction: column;
 }
+.UploadVideoFullContainer {
+  max-width : 20rem;
+}
+
+.UploadVideoFullContainer video,.UploadVideoFullContainer img,.UploadVideoFullContainer object{
+  width : 100%;
+  height : auto;
+}
+
+.user{
+  background-color: var(--main-bg-theme-light-gray);
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--main-bg-theme-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .History-List {
+  display: flex;
+  flex-direction: column;
+  width : 100%;
+  flex : 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.History-List > *{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.History-List > :first-child {
+  margin-top: 10px;
+}
+.History-List > :nth-child(2){
+
+}
+p.small {
+  color : gray;
+  font-size: xx-small;
+}
+.MessageContainer {
   display: flex;
   flex-direction: row;
   width : 100%;
-  flex : 1;
+  height : min-content;
+  color : white;
+  align-items: center;
+}
+.MessageContainer > :first-child {
+  margin-right : 1rem;
+  margin-left: 1rem;
 }
 
 .Action {
@@ -251,24 +308,50 @@
 }
 .Conversation > :last-child {
 }
+.Conversation-Scroller .Display {
+  
+}
 .Conversation-Scroller {
   width : 100%;
   flex : 1;
   display: flex;
+  gap : 5px;
   flex-direction: column;
+  align-items: center;
 }
+
 .Conversation-Scroller > :first-child {
   margin-top: 1rem;
 }
-
-.Conversation-Scroller button {
+.Conversation-Scroller .Friend{
+  width : 100%;
+}
+.Conversation-Scroller button,.Conversation-Scroller label {
   background-color: transparent;
   color : white;
   border : none;
-  text-align: start;
-  padding-left: 10px;
+}
+.Friend{
+  display: flex;
+  flex-direction: row;
+  gap : 5px;
+}
+.Friend > button {
+  width : 1rem;
 }
 
+
+.Conversation-Scroller > *:not(.Display) {
+  width : 100%;
+  text-align: center;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.Conversation-Scroller  button:hover {
+  background-color: rgb(98, 78, 252);
+}
 
 .Profile {
   display: flex;
@@ -284,6 +367,23 @@
   justify-content: center;
   font-size: large;
   color : rgb(203, 203, 203);
+}
+.Profile-desc > :first-child{
+  justify-content: center;
+  align-content: center;
+  display: flex;
+}
+.Profile button:last-child {
+  background-color: transparent;;
+  color : white;
+  border : none;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.Profile > button:last-child:hover {
+  background-color: var(--main-bg-theme-blue);
+  border-radius: 5px;
 }
 
 .ExpandingList {
@@ -322,9 +422,13 @@
 .ProfileForm > .Display {
   align-self: center;
 }
-.ProfileForm > input[type=submit] {
+.ProfileForm > :last-child {
   margin-top: auto  ;
-
+  display: flex;
+  flex-direction: row;
+}
+.ProfileForm > :last-child > * {
+  flex : auto;
 }
 .ProfileForm > input[type=reset] {
   margin-bottom : 10px;
@@ -333,4 +437,135 @@
   display: flex;
   flex-basis: .5;
   height : 1.5rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+.LoginForm .Display,.LoginForm label,.LoginForm textarea {
+  align-self: center;
+  text-align: center;
+}
+.LoginForm {
+  background-color: var(--main-bg-theme-light-gray);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+.LoginForm .Row {
+  display: flex;
+  flex-direction: row;
+}
+
+.LoginForm h2 {
+  color: white;
+  margin: 0;
+  text-align: center;
+}
+
+.LoginForm label {
+  color: white;
+}
+
+.LoginForm input[type="text"],.LoginForm select {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--main-bg-theme-dark);
+  color: white;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-direction: row;
+}
+
+.form-buttons input[type="submit"],
+.form-buttons input[type="reset"],
+.form-buttons button {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--main-bg-theme-blue);
+  color: white;
+}
+
+.form-buttons button {
+  background-color: var(--main-bg-theme-light);
+}
+.HoverHighlight:hover,.NoActualHoverLight.HoverHighlight{
+  border: 2px solid white;;
+  border-radius: 50%;
+}
+.Hide{
+  display: none;
+}
+textarea{
+  background-color: transparent;
+  border : None;
+  color : white;
+}
+
+.Outline{
+  border : 1px solid white;
+  border-radius: 5px;
+}
+
+.AddThread {
+  font-size: x-large;
+}
+
+.Display button{
+  padding : 0;
+  text-align: center;
+}
+
+.BoldProfile {
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-bg-theme-dark);
+}
+.BoldProfile > .Profile-desc{
+  align-items: center;
+}
+.BoldProfile > .Display,.BoldProfile > .Display *,.BoldProfileEmpty > .Display,.BoldProfileEmpty > .Display * {
+  width : 10rem !important;
+  height : 10rem !important;
+}
+.BoldProfileEmpty {
+  padding-top: 3rem;
+  padding-bottom : 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-bg-theme-dark);
+}
+.BoldProfile .Profile-desc {
+  width : 100%;
+  height : 10rem;
+  display: flex;
+  flex-direction: column;
 }
